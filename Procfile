@@ -1,1 +1,1 @@
-web: flask db upgrade; gunicorn myblog1996:app --log-file -
+web: flask db upgrade; gunicorn myblog:app --log-file -
