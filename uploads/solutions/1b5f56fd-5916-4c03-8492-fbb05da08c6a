@@ -1,0 +1,2451 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import requests\n",
+    "import json"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "r = requests.get('https://api.github.com/repos/awesome-jobs/vietnam/issues/1175')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "resp = r.json()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'url': 'https://api.github.com/repos/awesome-jobs/vietnam/issues/1175',\n",
+       " 'repository_url': 'https://api.github.com/repos/awesome-jobs/vietnam',\n",
+       " 'labels_url': 'https://api.github.com/repos/awesome-jobs/vietnam/issues/1175/labels{/name}',\n",
+       " 'comments_url': 'https://api.github.com/repos/awesome-jobs/vietnam/issues/1175/comments',\n",
+       " 'events_url': 'https://api.github.com/repos/awesome-jobs/vietnam/issues/1175/events',\n",
+       " 'html_url': 'https://github.com/awesome-jobs/vietnam/issues/1175',\n",
+       " 'id': 351289620,\n",
+       " 'node_id': 'MDU6SXNzdWUzNTEyODk2MjA=',\n",
+       " 'number': 1175,\n",
+       " 'title': 'Drupal Developer In HCMC, Vietnam',\n",
+       " 'user': {'login': 'gilbertravels',\n",
+       "  'id': 23265814,\n",
+       "  'node_id': 'MDQ6VXNlcjIzMjY1ODE0',\n",
+       "  'avatar_url': 'https://avatars3.githubusercontent.com/u/23265814?v=4',\n",
+       "  'gravatar_id': '',\n",
+       "  'url': 'https://api.github.com/users/gilbertravels',\n",
+       "  'html_url': 'https://github.com/gilbertravels',\n",
+       "  'followers_url': 'https://api.github.com/users/gilbertravels/followers',\n",
+       "  'following_url': 'https://api.github.com/users/gilbertravels/following{/other_user}',\n",
+       "  'gists_url': 'https://api.github.com/users/gilbertravels/gists{/gist_id}',\n",
+       "  'starred_url': 'https://api.github.com/users/gilbertravels/starred{/owner}{/repo}',\n",
+       "  'subscriptions_url': 'https://api.github.com/users/gilbertravels/subscriptions',\n",
+       "  'organizations_url': 'https://api.github.com/users/gilbertravels/orgs',\n",
+       "  'repos_url': 'https://api.github.com/users/gilbertravels/repos',\n",
+       "  'events_url': 'https://api.github.com/users/gilbertravels/events{/privacy}',\n",
+       "  'received_events_url': 'https://api.github.com/users/gilbertravels/received_events',\n",
+       "  'type': 'User',\n",
+       "  'site_admin': False},\n",
+       " 'labels': [],\n",
+       " 'state': 'open',\n",
+       " 'locked': False,\n",
+       " 'assignee': None,\n",
+       " 'assignees': [],\n",
+       " 'milestone': None,\n",
+       " 'comments': 0,\n",
+       " 'created_at': '2018-08-16T17:00:14Z',\n",
+       " 'updated_at': '2018-08-16T17:00:14Z',\n",
+       " 'closed_at': None,\n",
+       " 'author_association': 'NONE',\n",
+       " 'body': '## Location\\r\\n\\r\\n* Saigon, Vietnam\\r\\n\\r\\n## Salary Expectation\\r\\n\\r\\n* USD2,500/month\\r\\n\\r\\n## Requirements\\r\\n· Working knowledge of Drupal is a must\\r\\n· To be able to communicate and literate Chinese is an advantage\\r\\n· Understanding of other open source projects such as Joomla, Wikis, osCommerce, etc is a plus\\r\\n. Proven software development experience in PHP\\r\\n· Demonstrable knowledge of web technologies including HTML, CSS, Javascript, AJAX etc\\r\\n· Good knowledge of relational databases, version control tools and of developing web services\\r\\n· Experience in common third-party APIs (Google, Facebook, Ebay etc)\\r\\n· Passion for best design and coding practices and a desire to develop new bold ideas\\r\\n· BS/MS degree in Computer Science, Engineering or a related subject\\r\\n\\r\\n## Skills\\r\\n\\r\\n### Must Have\\r\\n\\r\\n· Working knowledge of Drupal is a must\\r\\n\\r\\n### Ideally\\r\\n\\r\\n· Understanding of other open source projects such as Joomla, Wikis, osCommerce, etc is a plus\\r\\n. Proven software development experience in PHP\\r\\n· Demonstrable knowledge of web technologies including HTML, CSS, Javascript, AJAX etc\\r\\n\\r\\n### Responsibilities\\r\\n\\r\\n· Write “clean”, well-designed code\\r\\n· Produce detailed specifications\\r\\n· Troubleshoot, test and maintain the core product software and databases to ensure strong optimization and functionality\\r\\n· Contribute in all phases of the development life cycle\\r\\n· Follow industry best practices\\r\\n· Develop and deploy new features to facilitate related procedures and tools if necessary\\r\\n\\r\\n### You’ll be responsible for\\r\\n\\r\\n* Building awesome Drupal Projects\\r\\n\\r\\n### Interesting engineering projects\\r\\n\\r\\n### Contact\\r\\nHomepage: https://9cv9.com/jobs/drupal-developer-in-hcmc-vietnam/\\r\\nEmail: hello@9cv9.com\\r\\n',\n",
+       " 'closed_by': None}"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "resp"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'## Location\\r\\n\\r\\n* Saigon, Vietnam\\r\\n\\r\\n## Salary Expectation\\r\\n\\r\\n* USD2,500/month\\r\\n\\r\\n## Requirements\\r\\n· Working knowledge of Drupal is a must\\r\\n· To be able to communicate and literate Chinese is an advantage\\r\\n· Understanding of other open source projects such as Joomla, Wikis, osCommerce, etc is a plus\\r\\n. Proven software development experience in PHP\\r\\n· Demonstrable knowledge of web technologies including HTML, CSS, Javascript, AJAX etc\\r\\n· Good knowledge of relational databases, version control tools and of developing web services\\r\\n· Experience in common third-party APIs (Google, Facebook, Ebay etc)\\r\\n· Passion for best design and coding practices and a desire to develop new bold ideas\\r\\n· BS/MS degree in Computer Science, Engineering or a related subject\\r\\n\\r\\n## Skills\\r\\n\\r\\n### Must Have\\r\\n\\r\\n· Working knowledge of Drupal is a must\\r\\n\\r\\n### Ideally\\r\\n\\r\\n· Understanding of other open source projects such as Joomla, Wikis, osCommerce, etc is a plus\\r\\n. Proven software development experience in PHP\\r\\n· Demonstrable knowledge of web technologies including HTML, CSS, Javascript, AJAX etc\\r\\n\\r\\n### Responsibilities\\r\\n\\r\\n· Write “clean”, well-designed code\\r\\n· Produce detailed specifications\\r\\n· Troubleshoot, test and maintain the core product software and databases to ensure strong optimization and functionality\\r\\n· Contribute in all phases of the development life cycle\\r\\n· Follow industry best practices\\r\\n· Develop and deploy new features to facilitate related procedures and tools if necessary\\r\\n\\r\\n### You’ll be responsible for\\r\\n\\r\\n* Building awesome Drupal Projects\\r\\n\\r\\n### Interesting engineering projects\\r\\n\\r\\n### Contact\\r\\nHomepage: https://9cv9.com/jobs/drupal-developer-in-hcmc-vietnam/\\r\\nEmail: hello@9cv9.com\\r\\n'"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "resp['body']"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "str"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "type(resp['body'])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "infos = resp['body'].split('## ')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['',\n",
+       " 'Location\\r\\n\\r\\n* Saigon, Vietnam\\r\\n\\r\\n',\n",
+       " 'Salary Expectation\\r\\n\\r\\n* USD2,500/month\\r\\n\\r\\n',\n",
+       " 'Requirements\\r\\n· Working knowledge of Drupal is a must\\r\\n· To be able to communicate and literate Chinese is an advantage\\r\\n· Understanding of other open source projects such as Joomla, Wikis, osCommerce, etc is a plus\\r\\n. Proven software development experience in PHP\\r\\n· Demonstrable knowledge of web technologies including HTML, CSS, Javascript, AJAX etc\\r\\n· Good knowledge of relational databases, version control tools and of developing web services\\r\\n· Experience in common third-party APIs (Google, Facebook, Ebay etc)\\r\\n· Passion for best design and coding practices and a desire to develop new bold ideas\\r\\n· BS/MS degree in Computer Science, Engineering or a related subject\\r\\n\\r\\n',\n",
+       " 'Skills\\r\\n\\r\\n#',\n",
+       " 'Must Have\\r\\n\\r\\n· Working knowledge of Drupal is a must\\r\\n\\r\\n#',\n",
+       " 'Ideally\\r\\n\\r\\n· Understanding of other open source projects such as Joomla, Wikis, osCommerce, etc is a plus\\r\\n. Proven software development experience in PHP\\r\\n· Demonstrable knowledge of web technologies including HTML, CSS, Javascript, AJAX etc\\r\\n\\r\\n#',\n",
+       " 'Responsibilities\\r\\n\\r\\n· Write “clean”, well-designed code\\r\\n· Produce detailed specifications\\r\\n· Troubleshoot, test and maintain the core product software and databases to ensure strong optimization and functionality\\r\\n· Contribute in all phases of the development life cycle\\r\\n· Follow industry best practices\\r\\n· Develop and deploy new features to facilitate related procedures and tools if necessary\\r\\n\\r\\n#',\n",
+       " 'You’ll be responsible for\\r\\n\\r\\n* Building awesome Drupal Projects\\r\\n\\r\\n#',\n",
+       " 'Interesting engineering projects\\r\\n\\r\\n#',\n",
+       " 'Contact\\r\\nHomepage: https://9cv9.com/jobs/drupal-developer-in-hcmc-vietnam/\\r\\nEmail: hello@9cv9.com\\r\\n']"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "infos"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Salary Expectation\r\n",
+      "\r\n",
+      "* USD2,500/month\r\n",
+      "\r\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(infos[2])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "r2 = requests.get('https://api.github.com/repos/awesome-jobs/vietnam')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'id': 23904274,\n",
+       " 'node_id': 'MDEwOlJlcG9zaXRvcnkyMzkwNDI3NA==',\n",
+       " 'name': 'vietnam',\n",
+       " 'full_name': 'awesome-jobs/vietnam',\n",
+       " 'owner': {'login': 'awesome-jobs',\n",
+       "  'id': 17406945,\n",
+       "  'node_id': 'MDEyOk9yZ2FuaXphdGlvbjE3NDA2OTQ1',\n",
+       "  'avatar_url': 'https://avatars0.githubusercontent.com/u/17406945?v=4',\n",
+       "  'gravatar_id': '',\n",
+       "  'url': 'https://api.github.com/users/awesome-jobs',\n",
+       "  'html_url': 'https://github.com/awesome-jobs',\n",
+       "  'followers_url': 'https://api.github.com/users/awesome-jobs/followers',\n",
+       "  'following_url': 'https://api.github.com/users/awesome-jobs/following{/other_user}',\n",
+       "  'gists_url': 'https://api.github.com/users/awesome-jobs/gists{/gist_id}',\n",
+       "  'starred_url': 'https://api.github.com/users/awesome-jobs/starred{/owner}{/repo}',\n",
+       "  'subscriptions_url': 'https://api.github.com/users/awesome-jobs/subscriptions',\n",
+       "  'organizations_url': 'https://api.github.com/users/awesome-jobs/orgs',\n",
+       "  'repos_url': 'https://api.github.com/users/awesome-jobs/repos',\n",
+       "  'events_url': 'https://api.github.com/users/awesome-jobs/events{/privacy}',\n",
+       "  'received_events_url': 'https://api.github.com/users/awesome-jobs/received_events',\n",
+       "  'type': 'Organization',\n",
+       "  'site_admin': False},\n",
+       " 'private': False,\n",
+       " 'html_url': 'https://github.com/awesome-jobs/vietnam',\n",
+       " 'description': 'The best place to find devs in Vietnam!',\n",
+       " 'fork': False,\n",
+       " 'url': 'https://api.github.com/repos/awesome-jobs/vietnam',\n",
+       " 'forks_url': 'https://api.github.com/repos/awesome-jobs/vietnam/forks',\n",
+       " 'keys_url': 'https://api.github.com/repos/awesome-jobs/vietnam/keys{/key_id}',\n",
+       " 'collaborators_url': 'https://api.github.com/repos/awesome-jobs/vietnam/collaborators{/collaborator}',\n",
+       " 'teams_url': 'https://api.github.com/repos/awesome-jobs/vietnam/teams',\n",
+       " 'hooks_url': 'https://api.github.com/repos/awesome-jobs/vietnam/hooks',\n",
+       " 'issue_events_url': 'https://api.github.com/repos/awesome-jobs/vietnam/issues/events{/number}',\n",
+       " 'events_url': 'https://api.github.com/repos/awesome-jobs/vietnam/events',\n",
+       " 'assignees_url': 'https://api.github.com/repos/awesome-jobs/vietnam/assignees{/user}',\n",
+       " 'branches_url': 'https://api.github.com/repos/awesome-jobs/vietnam/branches{/branch}',\n",
+       " 'tags_url': 'https://api.github.com/repos/awesome-jobs/vietnam/tags',\n",
+       " 'blobs_url': 'https://api.github.com/repos/awesome-jobs/vietnam/git/blobs{/sha}',\n",
+       " 'git_tags_url': 'https://api.github.com/repos/awesome-jobs/vietnam/git/tags{/sha}',\n",
+       " 'git_refs_url': 'https://api.github.com/repos/awesome-jobs/vietnam/git/refs{/sha}',\n",
+       " 'trees_url': 'https://api.github.com/repos/awesome-jobs/vietnam/git/trees{/sha}',\n",
+       " 'statuses_url': 'https://api.github.com/repos/awesome-jobs/vietnam/statuses/{sha}',\n",
+       " 'languages_url': 'https://api.github.com/repos/awesome-jobs/vietnam/languages',\n",
+       " 'stargazers_url': 'https://api.github.com/repos/awesome-jobs/vietnam/stargazers',\n",
+       " 'contributors_url': 'https://api.github.com/repos/awesome-jobs/vietnam/contributors',\n",
+       " 'subscribers_url': 'https://api.github.com/repos/awesome-jobs/vietnam/subscribers',\n",
+       " 'subscription_url': 'https://api.github.com/repos/awesome-jobs/vietnam/subscription',\n",
+       " 'commits_url': 'https://api.github.com/repos/awesome-jobs/vietnam/commits{/sha}',\n",
+       " 'git_commits_url': 'https://api.github.com/repos/awesome-jobs/vietnam/git/commits{/sha}',\n",
+       " 'comments_url': 'https://api.github.com/repos/awesome-jobs/vietnam/comments{/number}',\n",
+       " 'issue_comment_url': 'https://api.github.com/repos/awesome-jobs/vietnam/issues/comments{/number}',\n",
+       " 'contents_url': 'https://api.github.com/repos/awesome-jobs/vietnam/contents/{+path}',\n",
+       " 'compare_url': 'https://api.github.com/repos/awesome-jobs/vietnam/compare/{base}...{head}',\n",
+       " 'merges_url': 'https://api.github.com/repos/awesome-jobs/vietnam/merges',\n",
+       " 'archive_url': 'https://api.github.com/repos/awesome-jobs/vietnam/{archive_format}{/ref}',\n",
+       " 'downloads_url': 'https://api.github.com/repos/awesome-jobs/vietnam/downloads',\n",
+       " 'issues_url': 'https://api.github.com/repos/awesome-jobs/vietnam/issues{/number}',\n",
+       " 'pulls_url': 'https://api.github.com/repos/awesome-jobs/vietnam/pulls{/number}',\n",
+       " 'milestones_url': 'https://api.github.com/repos/awesome-jobs/vietnam/milestones{/number}',\n",
+       " 'notifications_url': 'https://api.github.com/repos/awesome-jobs/vietnam/notifications{?since,all,participating}',\n",
+       " 'labels_url': 'https://api.github.com/repos/awesome-jobs/vietnam/labels{/name}',\n",
+       " 'releases_url': 'https://api.github.com/repos/awesome-jobs/vietnam/releases{/id}',\n",
+       " 'deployments_url': 'https://api.github.com/repos/awesome-jobs/vietnam/deployments',\n",
+       " 'created_at': '2014-09-11T04:36:28Z',\n",
+       " 'updated_at': '2018-08-27T06:15:26Z',\n",
+       " 'pushed_at': '2017-10-10T08:45:14Z',\n",
+       " 'git_url': 'git://github.com/awesome-jobs/vietnam.git',\n",
+       " 'ssh_url': 'git@github.com:awesome-jobs/vietnam.git',\n",
+       " 'clone_url': 'https://github.com/awesome-jobs/vietnam.git',\n",
+       " 'svn_url': 'https://github.com/awesome-jobs/vietnam',\n",
+       " 'homepage': '',\n",
+       " 'size': 23,\n",
+       " 'stargazers_count': 447,\n",
+       " 'watchers_count': 447,\n",
+       " 'language': None,\n",
+       " 'has_issues': True,\n",
+       " 'has_projects': True,\n",
+       " 'has_downloads': True,\n",
+       " 'has_wiki': False,\n",
+       " 'has_pages': False,\n",
+       " 'forks_count': 105,\n",
+       " 'mirror_url': None,\n",
+       " 'archived': False,\n",
+       " 'open_issues_count': 256,\n",
+       " 'license': None,\n",
+       " 'forks': 105,\n",
+       " 'open_issues': 256,\n",
+       " 'watchers': 447,\n",
+       " 'default_branch': 'master',\n",
+       " 'organization': {'login': 'awesome-jobs',\n",
+       "  'id': 17406945,\n",
+       "  'node_id': 'MDEyOk9yZ2FuaXphdGlvbjE3NDA2OTQ1',\n",
+       "  'avatar_url': 'https://avatars0.githubusercontent.com/u/17406945?v=4',\n",
+       "  'gravatar_id': '',\n",
+       "  'url': 'https://api.github.com/users/awesome-jobs',\n",
+       "  'html_url': 'https://github.com/awesome-jobs',\n",
+       "  'followers_url': 'https://api.github.com/users/awesome-jobs/followers',\n",
+       "  'following_url': 'https://api.github.com/users/awesome-jobs/following{/other_user}',\n",
+       "  'gists_url': 'https://api.github.com/users/awesome-jobs/gists{/gist_id}',\n",
+       "  'starred_url': 'https://api.github.com/users/awesome-jobs/starred{/owner}{/repo}',\n",
+       "  'subscriptions_url': 'https://api.github.com/users/awesome-jobs/subscriptions',\n",
+       "  'organizations_url': 'https://api.github.com/users/awesome-jobs/orgs',\n",
+       "  'repos_url': 'https://api.github.com/users/awesome-jobs/repos',\n",
+       "  'events_url': 'https://api.github.com/users/awesome-jobs/events{/privacy}',\n",
+       "  'received_events_url': 'https://api.github.com/users/awesome-jobs/received_events',\n",
+       "  'type': 'Organization',\n",
+       "  'site_admin': False},\n",
+       " 'network_count': 105,\n",
+       " 'subscribers_count': 249}"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "r2.json()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Contact\r\n",
+      "Homepage: https://9cv9.com/jobs/drupal-developer-in-hcmc-vietnam/\r\n",
+      "Email: hello@9cv9.com\r\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(infos[-1])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "## Location\r\n",
+      "\r\n",
+      "* Saigon, Vietnam\r\n",
+      "\r\n",
+      "## Salary Expectation\r\n",
+      "\r\n",
+      "* USD2,500/month\r\n",
+      "\r\n",
+      "## Requirements\r\n",
+      "· Working knowledge of Drupal is a must\r\n",
+      "· To be able to communicate and literate Chinese is an advantage\r\n",
+      "· Understanding of other open source projects such as Joomla, Wikis, osCommerce, etc is a plus\r\n",
+      ". Proven software development experience in PHP\r\n",
+      "· Demonstrable knowledge of web technologies including HTML, CSS, Javascript, AJAX etc\r\n",
+      "· Good knowledge of relational databases, version control tools and of developing web services\r\n",
+      "· Experience in common third-party APIs (Google, Facebook, Ebay etc)\r\n",
+      "· Passion for best design and coding practices and a desire to develop new bold ideas\r\n",
+      "· BS/MS degree in Computer Science, Engineering or a related subject\r\n",
+      "\r\n",
+      "## Skills\r\n",
+      "\r\n",
+      "### Must Have\r\n",
+      "\r\n",
+      "· Working knowledge of Drupal is a must\r\n",
+      "\r\n",
+      "### Ideally\r\n",
+      "\r\n",
+      "· Understanding of other open source projects such as Joomla, Wikis, osCommerce, etc is a plus\r\n",
+      ". Proven software development experience in PHP\r\n",
+      "· Demonstrable knowledge of web technologies including HTML, CSS, Javascript, AJAX etc\r\n",
+      "\r\n",
+      "### Responsibilities\r\n",
+      "\r\n",
+      "· Write “clean”, well-designed code\r\n",
+      "· Produce detailed specifications\r\n",
+      "· Troubleshoot, test and maintain the core product software and databases to ensure strong optimization and functionality\r\n",
+      "· Contribute in all phases of the development life cycle\r\n",
+      "· Follow industry best practices\r\n",
+      "· Develop and deploy new features to facilitate related procedures and tools if necessary\r\n",
+      "\r\n",
+      "### You’ll be responsible for\r\n",
+      "\r\n",
+      "* Building awesome Drupal Projects\r\n",
+      "\r\n",
+      "### Interesting engineering projects\r\n",
+      "\r\n",
+      "### Contact\r\n",
+      "Homepage: https://9cv9.com/jobs/drupal-developer-in-hcmc-vietnam/\r\n",
+      "Email: hello@9cv9.com\r\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(resp['body'])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from requests_html import HTMLSession"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "session = HTMLSession()\n",
+    "r3 = session.get('https://github.com/awesome-jobs/vietnam/issues')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "pages = int(r3.html.find('.pagination')[0].text.split(' ')[-2])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "resp = session.get('https://github.com/awesome-jobs/vietnam/issues?page=2')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "elements = resp.html.find('[id^=issue_]')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[<Element 'li' id='issue_1172' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='350764429'>,\n",
+       " <Element 'li' id='issue_1171' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='350276006'>,\n",
+       " <Element 'li' id='issue_1170' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='349984517'>,\n",
+       " <Element 'li' id='issue_1169' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='349893618'>,\n",
+       " <Element 'li' id='issue_1168' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='349368287'>,\n",
+       " <Element 'li' id='issue_1167' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='349089106'>,\n",
+       " <Element 'li' id='issue_1166' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='349086746'>,\n",
+       " <Element 'li' id='issue_1165' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='349085085'>,\n",
+       " <Element 'li' id='issue_1164' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='349082563'>,\n",
+       " <Element 'li' id='issue_1163' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='348663655'>,\n",
+       " <Element 'li' id='issue_1161' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='348532289'>,\n",
+       " <Element 'li' id='issue_1160' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='347671697'>,\n",
+       " <Element 'li' id='issue_1158' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='347311189'>,\n",
+       " <Element 'li' id='issue_1156' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='347278154'>,\n",
+       " <Element 'li' id='issue_1155' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='347253003'>,\n",
+       " <Element 'li' id='issue_1154' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='347252752'>,\n",
+       " <Element 'li' id='issue_1153' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='347251810'>,\n",
+       " <Element 'li' id='issue_1152' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='346936374'>,\n",
+       " <Element 'li' id='issue_1151' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='346928194'>,\n",
+       " <Element 'li' id='issue_1150' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='346922374'>,\n",
+       " <Element 'li' id='issue_1149' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='346915206'>,\n",
+       " <Element 'li' id='issue_1148' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='346908990'>,\n",
+       " <Element 'li' id='issue_1147' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='346902310'>,\n",
+       " <Element 'li' id='issue_1146' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='346895084'>,\n",
+       " <Element 'li' id='issue_1145' class=('Box-row', 'Box-row--focus-gray', 'p-0', 'js-navigation-item', 'js-issue-row') data-id='346858486'>]"
+      ]
+     },
+     "execution_count": 22,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "elements"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import requests"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "r = requests.get('https://api.github.com/repos/awesome-jobs/vietnam/issues/1175', auth=('dongocanh96', 'ngocanh8'))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'url': 'https://api.github.com/repos/awesome-jobs/vietnam/issues/1175',\n",
+       " 'repository_url': 'https://api.github.com/repos/awesome-jobs/vietnam',\n",
+       " 'labels_url': 'https://api.github.com/repos/awesome-jobs/vietnam/issues/1175/labels{/name}',\n",
+       " 'comments_url': 'https://api.github.com/repos/awesome-jobs/vietnam/issues/1175/comments',\n",
+       " 'events_url': 'https://api.github.com/repos/awesome-jobs/vietnam/issues/1175/events',\n",
+       " 'html_url': 'https://github.com/awesome-jobs/vietnam/issues/1175',\n",
+       " 'id': 351289620,\n",
+       " 'node_id': 'MDU6SXNzdWUzNTEyODk2MjA=',\n",
+       " 'number': 1175,\n",
+       " 'title': 'Drupal Developer In HCMC, Vietnam',\n",
+       " 'user': {'login': 'gilbertravels',\n",
+       "  'id': 23265814,\n",
+       "  'node_id': 'MDQ6VXNlcjIzMjY1ODE0',\n",
+       "  'avatar_url': 'https://avatars3.githubusercontent.com/u/23265814?v=4',\n",
+       "  'gravatar_id': '',\n",
+       "  'url': 'https://api.github.com/users/gilbertravels',\n",
+       "  'html_url': 'https://github.com/gilbertravels',\n",
+       "  'followers_url': 'https://api.github.com/users/gilbertravels/followers',\n",
+       "  'following_url': 'https://api.github.com/users/gilbertravels/following{/other_user}',\n",
+       "  'gists_url': 'https://api.github.com/users/gilbertravels/gists{/gist_id}',\n",
+       "  'starred_url': 'https://api.github.com/users/gilbertravels/starred{/owner}{/repo}',\n",
+       "  'subscriptions_url': 'https://api.github.com/users/gilbertravels/subscriptions',\n",
+       "  'organizations_url': 'https://api.github.com/users/gilbertravels/orgs',\n",
+       "  'repos_url': 'https://api.github.com/users/gilbertravels/repos',\n",
+       "  'events_url': 'https://api.github.com/users/gilbertravels/events{/privacy}',\n",
+       "  'received_events_url': 'https://api.github.com/users/gilbertravels/received_events',\n",
+       "  'type': 'User',\n",
+       "  'site_admin': False},\n",
+       " 'labels': [],\n",
+       " 'state': 'open',\n",
+       " 'locked': False,\n",
+       " 'assignee': None,\n",
+       " 'assignees': [],\n",
+       " 'milestone': None,\n",
+       " 'comments': 0,\n",
+       " 'created_at': '2018-08-16T17:00:14Z',\n",
+       " 'updated_at': '2018-08-16T17:00:14Z',\n",
+       " 'closed_at': None,\n",
+       " 'author_association': 'NONE',\n",
+       " 'body': '## Location\\r\\n\\r\\n* Saigon, Vietnam\\r\\n\\r\\n## Salary Expectation\\r\\n\\r\\n* USD2,500/month\\r\\n\\r\\n## Requirements\\r\\n· Working knowledge of Drupal is a must\\r\\n· To be able to communicate and literate Chinese is an advantage\\r\\n· Understanding of other open source projects such as Joomla, Wikis, osCommerce, etc is a plus\\r\\n. Proven software development experience in PHP\\r\\n· Demonstrable knowledge of web technologies including HTML, CSS, Javascript, AJAX etc\\r\\n· Good knowledge of relational databases, version control tools and of developing web services\\r\\n· Experience in common third-party APIs (Google, Facebook, Ebay etc)\\r\\n· Passion for best design and coding practices and a desire to develop new bold ideas\\r\\n· BS/MS degree in Computer Science, Engineering or a related subject\\r\\n\\r\\n## Skills\\r\\n\\r\\n### Must Have\\r\\n\\r\\n· Working knowledge of Drupal is a must\\r\\n\\r\\n### Ideally\\r\\n\\r\\n· Understanding of other open source projects such as Joomla, Wikis, osCommerce, etc is a plus\\r\\n. Proven software development experience in PHP\\r\\n· Demonstrable knowledge of web technologies including HTML, CSS, Javascript, AJAX etc\\r\\n\\r\\n### Responsibilities\\r\\n\\r\\n· Write “clean”, well-designed code\\r\\n· Produce detailed specifications\\r\\n· Troubleshoot, test and maintain the core product software and databases to ensure strong optimization and functionality\\r\\n· Contribute in all phases of the development life cycle\\r\\n· Follow industry best practices\\r\\n· Develop and deploy new features to facilitate related procedures and tools if necessary\\r\\n\\r\\n### You’ll be responsible for\\r\\n\\r\\n* Building awesome Drupal Projects\\r\\n\\r\\n### Interesting engineering projects\\r\\n\\r\\n### Contact\\r\\nHomepage: https://9cv9.com/jobs/drupal-developer-in-hcmc-vietnam/\\r\\nEmail: hello@9cv9.com\\r\\n',\n",
+       " 'closed_by': None}"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "r.json()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "r = requests.get('https://api.github.com/repos/awesome-jobs/vietnam/issues/104', auth=('dongocanh96', 'ngocanh8'))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "404"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "r.status_code"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import sqlite3"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "conn = sqlite3.connect('/home/dongocanh96/Documents/jobs.db')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "c = conn.cursor()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "None\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(c.lastrowid)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "AttributeError",
+     "evalue": "'sqlite3.Connection' object has no attribute 'lastrowid'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mAttributeError\u001b[0m                            Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-7-e3c04f285e25>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mconn\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mlastrowid\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;31mAttributeError\u001b[0m: 'sqlite3.Connection' object has no attribute 'lastrowid'"
+     ]
+    }
+   ],
+   "source": [
+    "conn.lastrowid"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "OperationalError",
+     "evalue": "near \"1\": syntax error",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mOperationalError\u001b[0m                          Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-8-4ef4905ce4cb>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mconn\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mexecute\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'SELECT TOP 1 * FROM jobs ORDER BY job_number DESC'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;31mOperationalError\u001b[0m: near \"1\": syntax error"
+     ]
+    }
+   ],
+   "source": [
+    "conn.execute('SELECT TOP 1 * FROM jobs ORDER BY job_number DESC')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<sqlite3.Cursor object at 0x7f8788675f10>\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(conn.execute('SELECT * FROM jobs ORDER BY job_number DESC LIMIT 1'))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "('None', 'None', 'None', 'None', 'None', 'None', 'None')\n"
+     ]
+    }
+   ],
+   "source": [
+    "for row in conn.execute('SELECT * FROM jobs ORDER BY job_number DESC LIMIT 1'):\n",
+    "    print(row)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "rows = conn.execute('SELECT job_number FROM jobs')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(1,)\n",
+      "(2,)\n",
+      "(3,)\n",
+      "(4,)\n",
+      "(5,)\n",
+      "(6,)\n",
+      "(7,)\n",
+      "(8,)\n",
+      "(9,)\n",
+      "(10,)\n",
+      "(11,)\n",
+      "(12,)\n",
+      "(13,)\n",
+      "(14,)\n",
+      "(15,)\n",
+      "(16,)\n",
+      "(17,)\n",
+      "(18,)\n",
+      "(19,)\n",
+      "(20,)\n",
+      "(21,)\n",
+      "(22,)\n",
+      "(23,)\n",
+      "(24,)\n",
+      "(25,)\n",
+      "(26,)\n",
+      "(27,)\n",
+      "(28,)\n",
+      "(29,)\n",
+      "(30,)\n",
+      "(31,)\n",
+      "(32,)\n",
+      "(33,)\n",
+      "(34,)\n",
+      "(35,)\n",
+      "(36,)\n",
+      "(37,)\n",
+      "(38,)\n",
+      "(39,)\n",
+      "(40,)\n",
+      "(41,)\n",
+      "(42,)\n",
+      "(43,)\n",
+      "(44,)\n",
+      "(45,)\n",
+      "(46,)\n",
+      "(47,)\n",
+      "(48,)\n",
+      "(49,)\n",
+      "(50,)\n",
+      "(51,)\n",
+      "(52,)\n",
+      "(53,)\n",
+      "(54,)\n",
+      "(55,)\n",
+      "(56,)\n",
+      "(57,)\n",
+      "(58,)\n",
+      "(59,)\n",
+      "(60,)\n",
+      "(61,)\n",
+      "(62,)\n",
+      "(63,)\n",
+      "(64,)\n",
+      "(65,)\n",
+      "(66,)\n",
+      "(67,)\n",
+      "(68,)\n",
+      "(69,)\n",
+      "(70,)\n",
+      "(71,)\n",
+      "(72,)\n",
+      "(73,)\n",
+      "(74,)\n",
+      "(75,)\n",
+      "(76,)\n",
+      "(77,)\n",
+      "(78,)\n",
+      "(79,)\n",
+      "(80,)\n",
+      "(81,)\n",
+      "(82,)\n",
+      "(83,)\n",
+      "(84,)\n",
+      "(85,)\n",
+      "(86,)\n",
+      "(87,)\n",
+      "(88,)\n",
+      "(89,)\n",
+      "(90,)\n",
+      "(91,)\n",
+      "(92,)\n",
+      "(93,)\n",
+      "(94,)\n",
+      "(95,)\n",
+      "(96,)\n",
+      "(97,)\n",
+      "(98,)\n",
+      "(99,)\n",
+      "(100,)\n",
+      "(101,)\n",
+      "(102,)\n",
+      "(103,)\n",
+      "('None',)\n",
+      "(105,)\n",
+      "(106,)\n",
+      "('None',)\n",
+      "(108,)\n",
+      "(109,)\n",
+      "(110,)\n",
+      "(111,)\n",
+      "(112,)\n",
+      "(113,)\n",
+      "(114,)\n",
+      "(115,)\n",
+      "(116,)\n",
+      "(117,)\n",
+      "(118,)\n",
+      "(119,)\n",
+      "(120,)\n",
+      "(121,)\n",
+      "(122,)\n",
+      "(123,)\n",
+      "(124,)\n",
+      "(125,)\n",
+      "(126,)\n",
+      "(127,)\n",
+      "(128,)\n",
+      "(129,)\n",
+      "(130,)\n",
+      "(131,)\n",
+      "(132,)\n",
+      "(133,)\n",
+      "(134,)\n",
+      "(135,)\n",
+      "(136,)\n",
+      "(137,)\n",
+      "(138,)\n",
+      "(139,)\n",
+      "(140,)\n",
+      "(141,)\n",
+      "(142,)\n",
+      "(143,)\n",
+      "(144,)\n",
+      "(145,)\n",
+      "(146,)\n",
+      "(147,)\n",
+      "(148,)\n",
+      "(149,)\n",
+      "(150,)\n",
+      "(151,)\n",
+      "(152,)\n",
+      "(153,)\n",
+      "(154,)\n",
+      "(155,)\n",
+      "(156,)\n",
+      "(157,)\n",
+      "(158,)\n",
+      "(159,)\n",
+      "(160,)\n",
+      "(161,)\n",
+      "(162,)\n",
+      "(163,)\n",
+      "(164,)\n",
+      "(165,)\n",
+      "(166,)\n",
+      "(167,)\n",
+      "(168,)\n",
+      "(169,)\n",
+      "(170,)\n",
+      "(171,)\n",
+      "(172,)\n",
+      "(173,)\n",
+      "(174,)\n",
+      "(175,)\n",
+      "(176,)\n",
+      "(177,)\n",
+      "(178,)\n",
+      "(179,)\n",
+      "('None',)\n",
+      "('None',)\n",
+      "(182,)\n",
+      "(183,)\n",
+      "(184,)\n",
+      "(185,)\n",
+      "(186,)\n",
+      "(187,)\n",
+      "(188,)\n",
+      "(189,)\n",
+      "(190,)\n",
+      "(191,)\n",
+      "(192,)\n",
+      "(193,)\n",
+      "(194,)\n",
+      "(195,)\n",
+      "(196,)\n",
+      "(197,)\n",
+      "(198,)\n",
+      "(199,)\n",
+      "(200,)\n",
+      "(201,)\n",
+      "(202,)\n",
+      "(203,)\n",
+      "(204,)\n",
+      "(205,)\n",
+      "('None',)\n",
+      "(207,)\n",
+      "(208,)\n",
+      "(209,)\n",
+      "(210,)\n",
+      "(211,)\n",
+      "(212,)\n",
+      "(213,)\n",
+      "(214,)\n",
+      "(215,)\n",
+      "(216,)\n",
+      "(217,)\n",
+      "(218,)\n",
+      "(219,)\n",
+      "(220,)\n",
+      "(221,)\n",
+      "(222,)\n",
+      "(223,)\n",
+      "(224,)\n",
+      "(225,)\n",
+      "(226,)\n",
+      "(227,)\n",
+      "(228,)\n",
+      "(229,)\n",
+      "(230,)\n",
+      "(231,)\n",
+      "(232,)\n",
+      "(233,)\n",
+      "(234,)\n",
+      "(235,)\n",
+      "(236,)\n",
+      "(237,)\n",
+      "(238,)\n",
+      "(239,)\n",
+      "(240,)\n",
+      "(241,)\n",
+      "(242,)\n",
+      "(243,)\n",
+      "(244,)\n",
+      "(245,)\n",
+      "(246,)\n",
+      "(247,)\n",
+      "(248,)\n",
+      "(249,)\n",
+      "(250,)\n",
+      "(251,)\n",
+      "(252,)\n",
+      "(253,)\n",
+      "(254,)\n",
+      "(255,)\n",
+      "(256,)\n",
+      "(257,)\n",
+      "(258,)\n",
+      "(259,)\n",
+      "(260,)\n",
+      "(261,)\n",
+      "(262,)\n",
+      "(263,)\n",
+      "(264,)\n",
+      "(265,)\n",
+      "(266,)\n",
+      "(267,)\n",
+      "(268,)\n",
+      "(269,)\n",
+      "(270,)\n",
+      "(271,)\n",
+      "(272,)\n",
+      "(273,)\n",
+      "(274,)\n",
+      "(275,)\n",
+      "(276,)\n",
+      "(277,)\n",
+      "(278,)\n",
+      "(279,)\n",
+      "(280,)\n",
+      "(281,)\n",
+      "(282,)\n",
+      "(283,)\n",
+      "(284,)\n",
+      "(285,)\n",
+      "(286,)\n",
+      "(287,)\n",
+      "(288,)\n",
+      "(289,)\n",
+      "(290,)\n",
+      "(291,)\n",
+      "(292,)\n",
+      "(293,)\n",
+      "(294,)\n",
+      "(295,)\n",
+      "(296,)\n",
+      "(297,)\n",
+      "(298,)\n",
+      "(299,)\n",
+      "(300,)\n",
+      "(301,)\n",
+      "(302,)\n",
+      "(303,)\n",
+      "(304,)\n",
+      "(305,)\n",
+      "(306,)\n",
+      "(307,)\n",
+      "(308,)\n",
+      "(309,)\n",
+      "(310,)\n",
+      "(311,)\n",
+      "(312,)\n",
+      "(313,)\n",
+      "(314,)\n",
+      "(315,)\n",
+      "(316,)\n",
+      "(317,)\n",
+      "(318,)\n",
+      "(319,)\n",
+      "(320,)\n",
+      "(321,)\n",
+      "(322,)\n",
+      "(323,)\n",
+      "(324,)\n",
+      "(325,)\n",
+      "(326,)\n",
+      "(327,)\n",
+      "(328,)\n",
+      "(329,)\n",
+      "(330,)\n",
+      "(331,)\n",
+      "(332,)\n",
+      "(333,)\n",
+      "(334,)\n",
+      "(335,)\n",
+      "(336,)\n",
+      "(337,)\n",
+      "(338,)\n",
+      "(339,)\n",
+      "(340,)\n",
+      "(341,)\n",
+      "(342,)\n",
+      "(343,)\n",
+      "(344,)\n",
+      "(345,)\n",
+      "(346,)\n",
+      "(347,)\n",
+      "(348,)\n",
+      "(349,)\n",
+      "(350,)\n",
+      "(351,)\n",
+      "(352,)\n",
+      "(353,)\n",
+      "(354,)\n",
+      "(355,)\n",
+      "(356,)\n",
+      "(357,)\n",
+      "(358,)\n",
+      "(359,)\n",
+      "(360,)\n",
+      "(361,)\n",
+      "(362,)\n",
+      "(363,)\n",
+      "(364,)\n",
+      "(365,)\n",
+      "(366,)\n",
+      "(367,)\n",
+      "(368,)\n",
+      "(369,)\n",
+      "(370,)\n",
+      "(371,)\n",
+      "(372,)\n",
+      "(373,)\n",
+      "(374,)\n",
+      "(375,)\n",
+      "(376,)\n",
+      "(377,)\n",
+      "(378,)\n",
+      "(379,)\n",
+      "(380,)\n",
+      "(381,)\n",
+      "(382,)\n",
+      "(383,)\n",
+      "(384,)\n",
+      "(385,)\n",
+      "(386,)\n",
+      "(387,)\n",
+      "(388,)\n",
+      "(389,)\n",
+      "(390,)\n",
+      "(391,)\n",
+      "(392,)\n",
+      "(393,)\n",
+      "(394,)\n",
+      "(395,)\n",
+      "(396,)\n",
+      "(397,)\n",
+      "(398,)\n",
+      "(399,)\n",
+      "(400,)\n",
+      "(401,)\n",
+      "(402,)\n",
+      "(403,)\n",
+      "(404,)\n",
+      "(405,)\n",
+      "(406,)\n",
+      "(407,)\n",
+      "(408,)\n",
+      "(409,)\n",
+      "(410,)\n",
+      "(411,)\n",
+      "(412,)\n",
+      "(413,)\n",
+      "(414,)\n",
+      "(415,)\n",
+      "(416,)\n",
+      "(417,)\n",
+      "(418,)\n",
+      "(419,)\n",
+      "(420,)\n",
+      "(421,)\n",
+      "(422,)\n",
+      "(423,)\n",
+      "(424,)\n",
+      "(425,)\n",
+      "(426,)\n",
+      "(427,)\n",
+      "(428,)\n",
+      "(429,)\n",
+      "(430,)\n",
+      "(431,)\n",
+      "(432,)\n",
+      "(433,)\n",
+      "(434,)\n",
+      "(435,)\n",
+      "(436,)\n",
+      "(437,)\n",
+      "(438,)\n",
+      "(439,)\n",
+      "(440,)\n",
+      "(441,)\n",
+      "(442,)\n",
+      "(443,)\n",
+      "(444,)\n",
+      "(445,)\n",
+      "(446,)\n",
+      "(447,)\n",
+      "(448,)\n",
+      "(449,)\n",
+      "(450,)\n",
+      "(451,)\n",
+      "(452,)\n",
+      "(453,)\n",
+      "(454,)\n",
+      "(455,)\n",
+      "(456,)\n",
+      "(457,)\n",
+      "(458,)\n",
+      "(459,)\n",
+      "(460,)\n",
+      "(461,)\n",
+      "(462,)\n",
+      "(463,)\n",
+      "(464,)\n",
+      "(465,)\n",
+      "(466,)\n",
+      "(467,)\n",
+      "(468,)\n",
+      "(469,)\n",
+      "(470,)\n",
+      "(471,)\n",
+      "(472,)\n",
+      "(473,)\n",
+      "(474,)\n",
+      "(475,)\n",
+      "(476,)\n",
+      "(477,)\n",
+      "(478,)\n",
+      "(479,)\n",
+      "(480,)\n",
+      "(481,)\n",
+      "(482,)\n",
+      "(483,)\n",
+      "(484,)\n",
+      "(485,)\n",
+      "(486,)\n",
+      "(487,)\n",
+      "(488,)\n",
+      "(489,)\n",
+      "(490,)\n",
+      "(491,)\n",
+      "(492,)\n",
+      "(493,)\n",
+      "(494,)\n",
+      "(495,)\n",
+      "(496,)\n",
+      "(497,)\n",
+      "(498,)\n",
+      "('None',)\n",
+      "('None',)\n",
+      "(501,)\n",
+      "(502,)\n",
+      "(503,)\n",
+      "(504,)\n",
+      "(505,)\n",
+      "(506,)\n",
+      "(507,)\n",
+      "(508,)\n",
+      "(509,)\n",
+      "(510,)\n",
+      "(511,)\n",
+      "(512,)\n",
+      "(513,)\n",
+      "(514,)\n",
+      "(515,)\n",
+      "(516,)\n",
+      "(517,)\n",
+      "(518,)\n",
+      "(519,)\n",
+      "(520,)\n",
+      "(521,)\n",
+      "(522,)\n",
+      "(523,)\n",
+      "(524,)\n",
+      "(525,)\n",
+      "(526,)\n",
+      "(527,)\n",
+      "(528,)\n",
+      "(529,)\n",
+      "(530,)\n",
+      "(531,)\n",
+      "(532,)\n",
+      "(533,)\n",
+      "(534,)\n",
+      "(535,)\n",
+      "(536,)\n",
+      "(537,)\n",
+      "(538,)\n",
+      "(539,)\n",
+      "(540,)\n",
+      "(541,)\n",
+      "(542,)\n",
+      "(543,)\n",
+      "(544,)\n",
+      "(545,)\n",
+      "(546,)\n",
+      "(547,)\n",
+      "(548,)\n",
+      "('None',)\n",
+      "(550,)\n",
+      "(551,)\n",
+      "(552,)\n",
+      "(553,)\n",
+      "(554,)\n",
+      "(555,)\n",
+      "(556,)\n",
+      "(557,)\n",
+      "(558,)\n",
+      "(559,)\n",
+      "(560,)\n",
+      "(561,)\n",
+      "(562,)\n",
+      "(563,)\n",
+      "(564,)\n",
+      "(565,)\n",
+      "(566,)\n",
+      "(567,)\n",
+      "(568,)\n",
+      "(569,)\n",
+      "(570,)\n",
+      "(571,)\n",
+      "(572,)\n",
+      "(573,)\n",
+      "(574,)\n",
+      "(575,)\n",
+      "(576,)\n",
+      "(577,)\n",
+      "(578,)\n",
+      "(579,)\n",
+      "(580,)\n",
+      "(581,)\n",
+      "(582,)\n",
+      "(583,)\n",
+      "(584,)\n",
+      "(585,)\n",
+      "(586,)\n",
+      "(587,)\n",
+      "(588,)\n",
+      "(589,)\n",
+      "(590,)\n",
+      "(591,)\n",
+      "(592,)\n",
+      "(593,)\n",
+      "(594,)\n",
+      "(595,)\n",
+      "(596,)\n",
+      "(597,)\n",
+      "(598,)\n",
+      "(599,)\n",
+      "(600,)\n",
+      "(601,)\n",
+      "(602,)\n",
+      "(603,)\n",
+      "(604,)\n",
+      "(605,)\n",
+      "(606,)\n",
+      "(607,)\n",
+      "(608,)\n",
+      "(609,)\n",
+      "(610,)\n",
+      "(611,)\n",
+      "(612,)\n",
+      "(613,)\n",
+      "(614,)\n",
+      "(615,)\n",
+      "(616,)\n",
+      "(617,)\n",
+      "(618,)\n",
+      "(619,)\n",
+      "(620,)\n",
+      "(621,)\n",
+      "(622,)\n",
+      "(623,)\n",
+      "('None',)\n",
+      "(625,)\n",
+      "(626,)\n",
+      "(627,)\n",
+      "(628,)\n",
+      "(629,)\n",
+      "(630,)\n",
+      "(631,)\n",
+      "(632,)\n",
+      "(633,)\n",
+      "(634,)\n",
+      "(635,)\n",
+      "(636,)\n",
+      "(637,)\n",
+      "(638,)\n",
+      "('None',)\n",
+      "(640,)\n",
+      "(641,)\n",
+      "(642,)\n",
+      "(643,)\n",
+      "(644,)\n",
+      "(645,)\n",
+      "(646,)\n",
+      "(647,)\n",
+      "(648,)\n",
+      "(649,)\n",
+      "(650,)\n",
+      "(651,)\n",
+      "(652,)\n",
+      "(653,)\n",
+      "(654,)\n",
+      "(655,)\n",
+      "(656,)\n",
+      "(657,)\n",
+      "(658,)\n",
+      "(659,)\n",
+      "(660,)\n",
+      "(661,)\n",
+      "(662,)\n",
+      "(663,)\n",
+      "(664,)\n",
+      "(665,)\n",
+      "(666,)\n",
+      "(667,)\n",
+      "(668,)\n",
+      "(669,)\n",
+      "(670,)\n",
+      "(671,)\n",
+      "(672,)\n",
+      "(673,)\n",
+      "(674,)\n",
+      "(675,)\n",
+      "(676,)\n",
+      "(677,)\n",
+      "(678,)\n",
+      "(679,)\n",
+      "(680,)\n",
+      "(681,)\n",
+      "(682,)\n",
+      "(683,)\n",
+      "(684,)\n",
+      "(685,)\n",
+      "(686,)\n",
+      "(687,)\n",
+      "(688,)\n",
+      "(689,)\n",
+      "(690,)\n",
+      "(691,)\n",
+      "(692,)\n",
+      "(693,)\n",
+      "(694,)\n",
+      "(695,)\n",
+      "(696,)\n",
+      "(697,)\n",
+      "(698,)\n",
+      "(699,)\n",
+      "(700,)\n",
+      "(701,)\n",
+      "(702,)\n",
+      "(703,)\n",
+      "(704,)\n",
+      "(705,)\n",
+      "(706,)\n",
+      "(707,)\n",
+      "(708,)\n",
+      "(709,)\n",
+      "(710,)\n",
+      "(711,)\n",
+      "(712,)\n",
+      "(713,)\n",
+      "(714,)\n",
+      "(715,)\n",
+      "(716,)\n",
+      "(717,)\n",
+      "(718,)\n",
+      "(719,)\n",
+      "(720,)\n",
+      "(721,)\n",
+      "(722,)\n",
+      "(723,)\n",
+      "(724,)\n",
+      "(725,)\n",
+      "(726,)\n",
+      "(727,)\n",
+      "(728,)\n",
+      "(729,)\n",
+      "(730,)\n",
+      "(731,)\n",
+      "(732,)\n",
+      "(733,)\n",
+      "(734,)\n",
+      "(735,)\n",
+      "(736,)\n",
+      "(737,)\n",
+      "(738,)\n",
+      "(739,)\n",
+      "(740,)\n",
+      "(741,)\n",
+      "(742,)\n",
+      "(743,)\n",
+      "(744,)\n",
+      "(745,)\n",
+      "(746,)\n",
+      "(747,)\n",
+      "(748,)\n",
+      "(749,)\n",
+      "(750,)\n",
+      "(751,)\n",
+      "(752,)\n",
+      "(753,)\n",
+      "(754,)\n",
+      "(755,)\n",
+      "(756,)\n",
+      "(757,)\n",
+      "(758,)\n",
+      "(759,)\n",
+      "(760,)\n",
+      "(761,)\n",
+      "(762,)\n",
+      "(763,)\n",
+      "(764,)\n",
+      "(765,)\n",
+      "(766,)\n",
+      "(767,)\n",
+      "(768,)\n",
+      "(769,)\n",
+      "(770,)\n",
+      "(771,)\n",
+      "(772,)\n",
+      "(773,)\n",
+      "(774,)\n",
+      "(775,)\n",
+      "(776,)\n",
+      "(777,)\n",
+      "(778,)\n",
+      "(779,)\n",
+      "('None',)\n",
+      "('None',)\n",
+      "('None',)\n",
+      "(783,)\n",
+      "(784,)\n",
+      "(785,)\n",
+      "(786,)\n",
+      "(787,)\n",
+      "(788,)\n",
+      "(789,)\n",
+      "(790,)\n",
+      "('None',)\n",
+      "('None',)\n",
+      "('None',)\n",
+      "('None',)\n",
+      "('None',)\n",
+      "('None',)\n",
+      "('None',)\n",
+      "('None',)\n",
+      "(799,)\n",
+      "(800,)\n",
+      "(801,)\n",
+      "(802,)\n",
+      "(803,)\n",
+      "(804,)\n",
+      "(805,)\n",
+      "(806,)\n",
+      "(807,)\n",
+      "(808,)\n",
+      "(809,)\n",
+      "(810,)\n",
+      "(811,)\n",
+      "(812,)\n",
+      "(813,)\n",
+      "(814,)\n",
+      "(815,)\n",
+      "(816,)\n",
+      "(817,)\n",
+      "(818,)\n",
+      "(819,)\n",
+      "(820,)\n",
+      "(821,)\n",
+      "(822,)\n",
+      "(823,)\n",
+      "(824,)\n",
+      "(825,)\n",
+      "(826,)\n",
+      "(827,)\n",
+      "(828,)\n",
+      "(829,)\n",
+      "(830,)\n",
+      "(831,)\n",
+      "(832,)\n",
+      "(833,)\n",
+      "(834,)\n",
+      "(835,)\n",
+      "(836,)\n",
+      "(837,)\n",
+      "(838,)\n",
+      "(839,)\n",
+      "(840,)\n",
+      "(841,)\n",
+      "(842,)\n",
+      "(843,)\n",
+      "(844,)\n",
+      "(845,)\n",
+      "('None',)\n",
+      "(847,)\n",
+      "(848,)\n",
+      "(849,)\n",
+      "(850,)\n",
+      "(851,)\n",
+      "(852,)\n",
+      "(853,)\n",
+      "(854,)\n",
+      "(855,)\n",
+      "(856,)\n",
+      "(857,)\n",
+      "(858,)\n",
+      "(859,)\n",
+      "(860,)\n",
+      "(861,)\n",
+      "(862,)\n",
+      "(863,)\n",
+      "(864,)\n",
+      "(865,)\n",
+      "(866,)\n",
+      "(867,)\n",
+      "(868,)\n",
+      "(869,)\n",
+      "(870,)\n",
+      "(871,)\n",
+      "(872,)\n",
+      "(873,)\n",
+      "(874,)\n",
+      "(875,)\n",
+      "(876,)\n",
+      "(877,)\n",
+      "(878,)\n",
+      "(879,)\n",
+      "(880,)\n",
+      "(881,)\n",
+      "(882,)\n",
+      "(883,)\n",
+      "(884,)\n",
+      "(885,)\n",
+      "(886,)\n",
+      "(887,)\n",
+      "(888,)\n",
+      "(889,)\n",
+      "(890,)\n",
+      "(891,)\n",
+      "(892,)\n",
+      "(893,)\n",
+      "(894,)\n",
+      "(895,)\n",
+      "(896,)\n",
+      "(897,)\n",
+      "(898,)\n",
+      "(899,)\n",
+      "(900,)\n",
+      "(901,)\n",
+      "(902,)\n",
+      "(903,)\n",
+      "(904,)\n",
+      "(905,)\n",
+      "(906,)\n",
+      "(907,)\n",
+      "(908,)\n",
+      "(909,)\n",
+      "(910,)\n",
+      "(911,)\n",
+      "(912,)\n",
+      "(913,)\n",
+      "(914,)\n",
+      "(915,)\n",
+      "(916,)\n",
+      "(917,)\n",
+      "(918,)\n",
+      "(919,)\n",
+      "(920,)\n",
+      "(921,)\n",
+      "(922,)\n",
+      "(923,)\n",
+      "(924,)\n",
+      "(925,)\n",
+      "(926,)\n",
+      "(927,)\n",
+      "(928,)\n",
+      "(929,)\n",
+      "(930,)\n",
+      "(931,)\n",
+      "(932,)\n",
+      "(933,)\n",
+      "(934,)\n",
+      "(935,)\n",
+      "(936,)\n",
+      "(937,)\n",
+      "(938,)\n",
+      "(939,)\n",
+      "(940,)\n",
+      "(941,)\n",
+      "(942,)\n",
+      "(943,)\n",
+      "(944,)\n",
+      "(945,)\n",
+      "(946,)\n",
+      "(947,)\n",
+      "(948,)\n",
+      "(949,)\n",
+      "(950,)\n",
+      "(951,)\n",
+      "(952,)\n",
+      "(953,)\n",
+      "(954,)\n",
+      "(955,)\n",
+      "(956,)\n",
+      "(957,)\n",
+      "('None',)\n",
+      "(959,)\n",
+      "(960,)\n",
+      "(961,)\n",
+      "(962,)\n",
+      "(963,)\n",
+      "(964,)\n",
+      "(965,)\n",
+      "(966,)\n",
+      "(967,)\n",
+      "(968,)\n",
+      "(969,)\n",
+      "(970,)\n",
+      "(971,)\n",
+      "(972,)\n",
+      "(973,)\n",
+      "(974,)\n",
+      "(975,)\n",
+      "(976,)\n",
+      "(977,)\n",
+      "(978,)\n",
+      "(979,)\n",
+      "(980,)\n",
+      "(981,)\n",
+      "(982,)\n",
+      "(983,)\n",
+      "(984,)\n",
+      "(985,)\n",
+      "(986,)\n",
+      "(987,)\n",
+      "(988,)\n",
+      "(989,)\n",
+      "(990,)\n",
+      "(991,)\n",
+      "(992,)\n",
+      "(993,)\n",
+      "(994,)\n",
+      "(995,)\n",
+      "(996,)\n",
+      "(997,)\n",
+      "(998,)\n",
+      "(999,)\n",
+      "(1000,)\n",
+      "(1001,)\n",
+      "(1002,)\n",
+      "(1003,)\n",
+      "(1004,)\n",
+      "(1005,)\n",
+      "(1006,)\n",
+      "(1007,)\n",
+      "(1008,)\n",
+      "(1009,)\n",
+      "(1010,)\n",
+      "(1011,)\n",
+      "(1012,)\n",
+      "(1013,)\n",
+      "(1014,)\n",
+      "(1015,)\n",
+      "(1016,)\n",
+      "(1017,)\n",
+      "('None',)\n",
+      "(1019,)\n",
+      "(1020,)\n",
+      "(1021,)\n",
+      "(1022,)\n",
+      "(1023,)\n",
+      "(1024,)\n",
+      "(1025,)\n",
+      "(1026,)\n",
+      "(1027,)\n",
+      "(1028,)\n",
+      "(1029,)\n",
+      "(1030,)\n",
+      "(1031,)\n",
+      "(1032,)\n",
+      "(1033,)\n",
+      "(1034,)\n",
+      "(1035,)\n",
+      "(1036,)\n",
+      "(1037,)\n",
+      "(1038,)\n",
+      "(1039,)\n",
+      "(1040,)\n",
+      "(1041,)\n",
+      "(1042,)\n",
+      "(1043,)\n",
+      "(1044,)\n",
+      "(1045,)\n",
+      "(1046,)\n",
+      "(1047,)\n",
+      "(1048,)\n",
+      "(1049,)\n",
+      "(1050,)\n",
+      "(1051,)\n",
+      "(1052,)\n",
+      "(1053,)\n",
+      "(1054,)\n",
+      "(1055,)\n",
+      "(1056,)\n",
+      "(1057,)\n",
+      "(1058,)\n",
+      "(1059,)\n",
+      "(1060,)\n",
+      "(1061,)\n",
+      "(1062,)\n",
+      "(1063,)\n",
+      "(1064,)\n",
+      "(1065,)\n",
+      "(1066,)\n",
+      "(1067,)\n",
+      "(1068,)\n",
+      "(1069,)\n",
+      "(1070,)\n",
+      "(1071,)\n",
+      "(1072,)\n",
+      "(1073,)\n",
+      "(1074,)\n",
+      "(1075,)\n",
+      "('None',)\n",
+      "(1077,)\n",
+      "(1078,)\n",
+      "(1079,)\n",
+      "(1080,)\n",
+      "(1081,)\n",
+      "(1082,)\n",
+      "(1083,)\n",
+      "(1084,)\n",
+      "(1085,)\n",
+      "(1086,)\n",
+      "(1087,)\n",
+      "(1088,)\n",
+      "(1089,)\n",
+      "(1090,)\n",
+      "(1091,)\n",
+      "(1092,)\n",
+      "(1093,)\n",
+      "(1094,)\n",
+      "(1095,)\n",
+      "(1096,)\n",
+      "(1097,)\n",
+      "(1098,)\n",
+      "(1099,)\n",
+      "(1100,)\n",
+      "(1101,)\n",
+      "(1102,)\n",
+      "(1103,)\n",
+      "('None',)\n",
+      "('None',)\n",
+      "(1106,)\n",
+      "(1107,)\n",
+      "('None',)\n",
+      "(1109,)\n",
+      "(1110,)\n",
+      "(1111,)\n",
+      "(1112,)\n",
+      "(1113,)\n",
+      "(1114,)\n",
+      "(1115,)\n",
+      "(1116,)\n",
+      "(1117,)\n",
+      "(1118,)\n",
+      "(1119,)\n",
+      "(1120,)\n",
+      "(1121,)\n",
+      "(1122,)\n",
+      "(1123,)\n",
+      "(1124,)\n",
+      "(1125,)\n",
+      "(1126,)\n",
+      "(1127,)\n",
+      "(1128,)\n",
+      "(1129,)\n",
+      "(1130,)\n",
+      "(1131,)\n",
+      "('None',)\n",
+      "('None',)\n",
+      "(1134,)\n",
+      "(1135,)\n",
+      "(1136,)\n",
+      "(1137,)\n",
+      "(1138,)\n",
+      "(1139,)\n",
+      "(1140,)\n",
+      "(1141,)\n",
+      "(1142,)\n",
+      "('None',)\n",
+      "(1144,)\n",
+      "(1145,)\n",
+      "(1146,)\n",
+      "(1147,)\n",
+      "(1148,)\n",
+      "(1149,)\n",
+      "(1150,)\n",
+      "(1151,)\n",
+      "(1152,)\n",
+      "(1153,)\n",
+      "(1154,)\n",
+      "(1155,)\n",
+      "(1156,)\n",
+      "('None',)\n",
+      "(1158,)\n",
+      "(1159,)\n",
+      "(1160,)\n",
+      "(1161,)\n",
+      "('None',)\n",
+      "(1163,)\n",
+      "(1164,)\n",
+      "(1165,)\n",
+      "(1166,)\n",
+      "(1167,)\n",
+      "(1168,)\n",
+      "(1169,)\n",
+      "(1170,)\n",
+      "(1171,)\n",
+      "('None',)\n",
+      "(1173,)\n",
+      "(1174,)\n",
+      "(1175,)\n",
+      "(1176,)\n",
+      "(1177,)\n",
+      "(1178,)\n",
+      "(1179,)\n",
+      "(1180,)\n",
+      "(1181,)\n",
+      "(1182,)\n",
+      "(1183,)\n",
+      "(1184,)\n",
+      "(1185,)\n",
+      "(1186,)\n",
+      "(1187,)\n",
+      "(1188,)\n",
+      "(1189,)\n",
+      "(1190,)\n",
+      "(1191,)\n",
+      "(1192,)\n",
+      "(1193,)\n",
+      "(1194,)\n",
+      "(1195,)\n",
+      "(1196,)\n",
+      "(1197,)\n",
+      "(1198,)\n",
+      "(1199,)\n",
+      "(1200,)\n",
+      "(1201,)\n"
+     ]
+    }
+   ],
+   "source": [
+    "for row in rows:\n",
+    "    print(row)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "row = conn.execute('SELECT job_number FROM jobs ORDER BY job_number DESC LIMIT 1')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "conn = sqlite3.connect('/home/dongocanh96/Documents/jobs.db')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "c = conn.cursor()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "row = conn.execute('SELECT job_number FROM jobs ORDER BY job_number DESC LIMIT 1')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<sqlite3.Cursor at 0x7f87885821f0>"
+      ]
+     },
+     "execution_count": 35,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "row"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(1201,)\n"
+     ]
+    }
+   ],
+   "source": [
+    "for ro in row:\n",
+    "    print(ro)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "TypeError",
+     "evalue": "object of type 'sqlite3.Cursor' has no len()",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-37-3c75bf94a446>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrow\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;31mTypeError\u001b[0m: object of type 'sqlite3.Cursor' has no len()"
+     ]
+    }
+   ],
+   "source": [
+    "len(row)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<class 'int'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "for ro in row:\n",
+    "    i = ro[0]\n",
+    "    print(type(i))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 43,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "1201"
+      ]
+     },
+     "execution_count": 43,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "i"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 44,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "row = c.execute('SELECT job_number FROM jobs ORDER BY job_number DESC LIMIT 1')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<sqlite3.Cursor at 0x7f87885820a0>"
+      ]
+     },
+     "execution_count": 45,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "row"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 46,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(1201,)\n"
+     ]
+    }
+   ],
+   "source": [
+    "for ro in row:\n",
+    "    print(ro)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 47,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "for ro in row:\n",
+    "    print(ro)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import sqlite3"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "conn = sqlite3.connect('/home/dongocanh96/Documents/jobs.db')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "c = conn.cursor()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "<sqlite3.Cursor at 0x7f49c5325ea0>"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "c.execute('SELECT exists(SELECT 1 FROM jobs LIMIT 1)')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "1"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "len(c.fetchone())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[(1,)]"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "c.fetchall()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import sqlite3\n",
+    "conn = sqlite3.connect('website123.db')\n",
+    "conn.row_factory = sqlite3.Row\n",
+    "c = conn.cursor()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "a = c.execute('select detail from jobs order by number desc limit 1').fetchone()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'## Location\\r\\n* Nguyen Thi Minh Khai Street, District 1, Saigon, Vietnam\\r\\n\\r\\nWe are a Singapore based company building a recruitment platform that will revolutionize the industry. We’re looking for motivated and hardworking individuals to join our new Vietnam based team that will build software that will revolutionise the industry further.\\r\\n\\r\\nOnce hired, you will be working with individuals from other parts of the world. Therefore, fluency in English (speaking and writing) is a must. As you’ll be working as a team, it’s important to be a team player, easy to work with and keep a positive spirit amongst other team members.\\r\\n\\r\\n## Salary Expectation\\r\\n* 2000 USD - 3000 USD monthly\\r\\n\\r\\n## Requirements\\r\\n* Java Spring\\r\\n* RESTful API\\r\\n* Frontend (at least HTML, CSS, JS)\\r\\n* 5+ years Software Engineering experience\\r\\n\\r\\n## Skills\\r\\n\\r\\n### Must Have\\r\\n* At least 5 years of proven knowledge as a Java developer. \\r\\n* Experience with RESTful services and microservices.\\u2028\\r\\n* You know your way in a terminal and CLI’s.\\u2028\\r\\n* You can understand and speak English \\u2028\\r\\n* AGILE\\u2028\\r\\n* OOP, OOA, TDD\\u2028\\r\\n* SQL, GWT, Maven, Spring\\u2028\\r\\n* Front-end skills including at least HTML, CSS and (vanilla) JS \\r\\n* Experience with Google Cloud Platform is a big plus \\u2028\\r\\n\\r\\n### Ideally\\r\\n* Experience with AngularJS/ ReactJS/NodeJS\\r\\n\\r\\n### You’ll be responsible for\\r\\n* Maintain and improve (existing) technical documents to accurately represent application design and code. \\u2028\\r\\n* Consult about optimal server configuration related to the platform’s load and requirements\\r\\n* Collaborate with the team to define the specifications of new features\\r\\n* Define the team requirements and capacity together with the CTO to optimize productivity.\\r\\n* Monitor production servers to assure maximum uptime - possibly outside of the traditional working hours. \\r\\n\\r\\n### Contact\\r\\nHelen: helen@talenthub.asia/ Skype: haominhtn\\r\\n'"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "a['detail']"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "## Location\r\n",
+      "* Nguyen Thi Minh Khai Street, District 1, Saigon, Vietnam\r\n",
+      "\r\n",
+      "We are a Singapore based company building a recruitment platform that will revolutionize the industry. We’re looking for motivated and hardworking individuals to join our new Vietnam based team that will build software that will revolutionise the industry further.\r\n",
+      "\r\n",
+      "Once hired, you will be working with individuals from other parts of the world. Therefore, fluency in English (speaking and writing) is a must. As you’ll be working as a team, it’s important to be a team player, easy to work with and keep a positive spirit amongst other team members.\r\n",
+      "\r\n",
+      "## Salary Expectation\r\n",
+      "* 2000 USD - 3000 USD monthly\r\n",
+      "\r\n",
+      "## Requirements\r\n",
+      "* Java Spring\r\n",
+      "* RESTful API\r\n",
+      "* Frontend (at least HTML, CSS, JS)\r\n",
+      "* 5+ years Software Engineering experience\r\n",
+      "\r\n",
+      "## Skills\r\n",
+      "\r\n",
+      "### Must Have\r\n",
+      "* At least 5 years of proven knowledge as a Java developer. \r\n",
+      "* Experience with RESTful services and microservices. ",
+      "\r\n",
+      "* You know your way in a terminal and CLI’s. ",
+      "\r\n",
+      "* You can understand and speak English  ",
+      "\r\n",
+      "* AGILE ",
+      "\r\n",
+      "* OOP, OOA, TDD ",
+      "\r\n",
+      "* SQL, GWT, Maven, Spring ",
+      "\r\n",
+      "* Front-end skills including at least HTML, CSS and (vanilla) JS \r\n",
+      "* Experience with Google Cloud Platform is a big plus  ",
+      "\r\n",
+      "\r\n",
+      "### Ideally\r\n",
+      "* Experience with AngularJS/ ReactJS/NodeJS\r\n",
+      "\r\n",
+      "### You’ll be responsible for\r\n",
+      "* Maintain and improve (existing) technical documents to accurately represent application design and code.  ",
+      "\r\n",
+      "* Consult about optimal server configuration related to the platform’s load and requirements\r\n",
+      "* Collaborate with the team to define the specifications of new features\r\n",
+      "* Define the team requirements and capacity together with the CTO to optimize productivity.\r\n",
+      "* Monitor production servers to assure maximum uptime - possibly outside of the traditional working hours. \r\n",
+      "\r\n",
+      "### Contact\r\n",
+      "Helen: helen@talenthub.asia/ Skype: haominhtn\r\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(a['detail'])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'## Location\\r<br>* Nguyen Thi Minh Khai Street, District 1, Saigon, Vietnam\\r<br>\\r<br>We are a Singapore based company building a recruitment platform that will revolutionize the industry. We’re looking for motivated and hardworking individuals to join our new Vietnam based team that will build software that will revolutionise the industry further.\\r<br>\\r<br>Once hired, you will be working with individuals from other parts of the world. Therefore, fluency in English (speaking and writing) is a must. As you’ll be working as a team, it’s important to be a team player, easy to work with and keep a positive spirit amongst other team members.\\r<br>\\r<br>## Salary Expectation\\r<br>* 2000 USD - 3000 USD monthly\\r<br>\\r<br>## Requirements\\r<br>* Java Spring\\r<br>* RESTful API\\r<br>* Frontend (at least HTML, CSS, JS)\\r<br>* 5+ years Software Engineering experience\\r<br>\\r<br>## Skills\\r<br>\\r<br>### Must Have\\r<br>* At least 5 years of proven knowledge as a Java developer. \\r<br>* Experience with RESTful services and microservices.\\u2028\\r<br>* You know your way in a terminal and CLI’s.\\u2028\\r<br>* You can understand and speak English \\u2028\\r<br>* AGILE\\u2028\\r<br>* OOP, OOA, TDD\\u2028\\r<br>* SQL, GWT, Maven, Spring\\u2028\\r<br>* Front-end skills including at least HTML, CSS and (vanilla) JS \\r<br>* Experience with Google Cloud Platform is a big plus \\u2028\\r<br>\\r<br>### Ideally\\r<br>* Experience with AngularJS/ ReactJS/NodeJS\\r<br>\\r<br>### You’ll be responsible for\\r<br>* Maintain and improve (existing) technical documents to accurately represent application design and code. \\u2028\\r<br>* Consult about optimal server configuration related to the platform’s load and requirements\\r<br>* Collaborate with the team to define the specifications of new features\\r<br>* Define the team requirements and capacity together with the CTO to optimize productivity.\\r<br>* Monitor production servers to assure maximum uptime - possibly outside of the traditional working hours. \\r<br>\\r<br>### Contact\\r<br>Helen: helen@talenthub.asia/ Skype: haominhtn\\r<br>'"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "a['detail'].replace('\\n', '<br>')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "dadf\r",
+      "adadf\n"
+     ]
+    }
+   ],
+   "source": [
+    "print('dadf\\radadf')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'## Location&#013;\\n* Nguyen Thi Minh Khai Street, District 1, Saigon, Vietnam&#013;\\n&#013;\\nWe are a Singapore based company building a recruitment platform that will revolutionize the industry. We’re looking for motivated and hardworking individuals to join our new Vietnam based team that will build software that will revolutionise the industry further.&#013;\\n&#013;\\nOnce hired, you will be working with individuals from other parts of the world. Therefore, fluency in English (speaking and writing) is a must. As you’ll be working as a team, it’s important to be a team player, easy to work with and keep a positive spirit amongst other team members.&#013;\\n&#013;\\n## Salary Expectation&#013;\\n* 2000 USD - 3000 USD monthly&#013;\\n&#013;\\n## Requirements&#013;\\n* Java Spring&#013;\\n* RESTful API&#013;\\n* Frontend (at least HTML, CSS, JS)&#013;\\n* 5+ years Software Engineering experience&#013;\\n&#013;\\n## Skills&#013;\\n&#013;\\n### Must Have&#013;\\n* At least 5 years of proven knowledge as a Java developer. &#013;\\n* Experience with RESTful services and microservices.\\u2028&#013;\\n* You know your way in a terminal and CLI’s.\\u2028&#013;\\n* You can understand and speak English \\u2028&#013;\\n* AGILE\\u2028&#013;\\n* OOP, OOA, TDD\\u2028&#013;\\n* SQL, GWT, Maven, Spring\\u2028&#013;\\n* Front-end skills including at least HTML, CSS and (vanilla) JS &#013;\\n* Experience with Google Cloud Platform is a big plus \\u2028&#013;\\n&#013;\\n### Ideally&#013;\\n* Experience with AngularJS/ ReactJS/NodeJS&#013;\\n&#013;\\n### You’ll be responsible for&#013;\\n* Maintain and improve (existing) technical documents to accurately represent application design and code. \\u2028&#013;\\n* Consult about optimal server configuration related to the platform’s load and requirements&#013;\\n* Collaborate with the team to define the specifications of new features&#013;\\n* Define the team requirements and capacity together with the CTO to optimize productivity.&#013;\\n* Monitor production servers to assure maximum uptime - possibly outside of the traditional working hours. &#013;\\n&#013;\\n### Contact&#013;\\nHelen: helen@talenthub.asia/ Skype: haominhtn&#013;\\n'"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "a['detail'].replace('\\r', '&#013;')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'## Location\\r\\n* Nguyen Thi Minh Khai Street, District 1, Saigon, Vietnam\\r\\n\\r\\nWe are a Singapore based company building a recruitment platform that will revolutionize the industry. We’re looking for motivated and hardworking individuals to join our new Vietnam based team that will build software that will revolutionise the industry further.\\r\\n\\r\\nOnce hired, you will be working with individuals from other parts of the world. Therefore, fluency in English (speaking and writing) is a must. As you’ll be working as a team, it’s important to be a team player, easy to work with and keep a positive spirit amongst other team members.\\r\\n\\r\\n## Salary Expectation\\r\\n* 2000 USD - 3000 USD monthly\\r\\n\\r\\n## Requirements\\r\\n* Java Spring\\r\\n* RESTful API\\r\\n* Frontend (at least HTML, CSS, JS)\\r\\n* 5+ years Software Engineering experience\\r\\n\\r\\n## Skills\\r\\n\\r\\n### Must Have\\r\\n* At least 5 years of proven knowledge as a Java developer. \\r\\n* Experience with RESTful services and microservices.\\u2028\\r\\n* You know your way in a terminal and CLI’s.\\u2028\\r\\n* You can understand and speak English \\u2028\\r\\n* AGILE\\u2028\\r\\n* OOP, OOA, TDD\\u2028\\r\\n* SQL, GWT, Maven, Spring\\u2028\\r\\n* Front-end skills including at least HTML, CSS and (vanilla) JS \\r\\n* Experience with Google Cloud Platform is a big plus \\u2028\\r\\n\\r\\n### Ideally\\r\\n* Experience with AngularJS/ ReactJS/NodeJS\\r\\n\\r\\n### You’ll be responsible for\\r\\n* Maintain and improve (existing) technical documents to accurately represent application design and code. \\u2028\\r\\n* Consult about optimal server configuration related to the platform’s load and requirements\\r\\n* Collaborate with the team to define the specifications of new features\\r\\n* Define the team requirements and capacity together with the CTO to optimize productivity.\\r\\n* Monitor production servers to assure maximum uptime - possibly outside of the traditional working hours. \\r\\n\\r\\n### Contact\\r\\nHelen: helen@talenthub.asia/ Skype: haominhtn\\r\\n'"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "a['detail']"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

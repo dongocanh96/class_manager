@@ -1,0 +1,14 @@
+<table class="table table-hover">
+    <tr>
+        <td width="70px">
+            <a href="{{ url_for('user', username=problem.author.username) }}">
+                {{ problem.author.username }}
+            </a>
+            <br>{{ problem.timestamp }}:
+        </td>
+        <td width="70px">
+            <br>
+            <a href="{{ url_for('detail', number=problem.id) }}">{{ problem.name }}</a>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h1>
+        {{ problem.author.username }}<br>
+        create on {{ problem.timestamp }}
+    </h1>
+    <p>
+        <a href="{{ url_for('download', uniquename=problem.unique_name, filetype='homeworks') }}">
+                {{ problem.name }}            
+        </a>
+    </p>
+    <hr>
+    {% if solutions %}
+        {% for solution in solutions %}
+            {% include "_solution.html" %}
+        {% endfor %}
+        {% if prev_url %}
+            <a href="{{ prev_url }}">Newer solutions</a>
+        {% endif %}
+        {% if next_url %}
+            <a href="{{ next_url }}">Older solutions</a>
+        {% endif %}
+    {% endif %}
+    {% if form %}
+    <div class="row">
+        <div class="col-md-4">
+            {{ wtf.quick_form(form) }}
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

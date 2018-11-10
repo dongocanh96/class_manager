@@ -1,0 +1,16 @@
+<table class="table table-hover">
+    <tr>
+        <td width="70px">
+            <a href="{{ url_for('user', username=solution.author.username) }}">
+                {{ solution.author.username }}
+            </a>
+            <br>{{ solution.timestamp }}:
+        </td>
+        <td width="70px">
+            <br>
+            <a href="{{ url_for('download',uniquename=solution.unique_name, filetype='solutions') }}">
+                {{ solution.name }}
+            </a>
+        </td>
+    </tr>
+</table>

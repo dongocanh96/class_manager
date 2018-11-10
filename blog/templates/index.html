@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <h1>Hello {{ current_user.username }}!</h1>
+    {% if current_user.is_teacher() %}
+    <p class="container">
+        <a href="{{ url_for('uploadHomeWork') }}">
+            <button type="button" class="btn btn-primary">
+                Create homework
+            </button>
+        </a>
+    </p>
+    {% endif %}
+    {% for problem in problems %}
+        {% include "_problem.html" %}
+    {% endfor %}
+    {% if prev_url %}
+        <a href="{{ prev_url }}">Newer homeworks</a>
+    {% endif %}
+    {% if next_url %}
+        <a href="{{ next_url }}">Older homeworks</a>
+    {% endif %}
+{% endblock %}
