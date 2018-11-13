@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm, Form
-from flask_wtf.file import FileField
+from flask_wtf.file import FileField, FileRequired
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
 from wtforms.validators import Optional, Length
@@ -65,6 +65,6 @@ class EditProfileForm(FlaskForm):
 
 
 class UploadFile(Form):
-    file = FileField()
+    file = FileField(validators=[FileRequired()])
     submit = SubmitField("Submit")
         
