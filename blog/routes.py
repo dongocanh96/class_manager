@@ -5,7 +5,7 @@ from blog import app, db
 from blog.forms import LoginForm, RegistrationForm, EditProfileForm, UploadFile, Messages
 from flask_login import current_user, login_user, logout_user
 from flask_login import login_required
-from blog.models import User, HomeWork, Solution, Messages
+from blog.models import User, HomeWork, Solution, Message
 from uuid import uuid4
 
 @app.route("/", methods=["GET", "POST"])

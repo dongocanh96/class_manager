@@ -19,10 +19,10 @@ class User(UserMixin, db.Model):
     phone_number = db.Column(db.String(10), index=True, unique=True)
     homeworks = db.relationship("HomeWork", backref="author", lazy="dynamic")
     solutions = db.relationship("Solution", backref="author", lazy="dynamic")
-    messages_sent = db.relationship("Messages",
+    messages_sent = db.relationship("Message",
                                             foreign_keys="Message.sender_id",
                                             backref="author", lazy="dynamic")
-    messages_received = db.relationship("Messages",
+    messages_received = db.relationship("Message",
                                             foreign_keys="Message.recipent_id",
                                             backref="author", lazy="dynamic")
     last_message_read_time = db.Column(db.DateTime)
@@ -65,7 +65,7 @@ class Solution(db.Model):
     unique_name = db.Column(db.String)
 
 
-class Messages(db.Model):
+class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     sender_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     recipent_id = db.Column(db.Integer, db.ForeignKey("user.id"))
