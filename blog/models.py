@@ -19,6 +19,13 @@ class User(UserMixin, db.Model):
     phone_number = db.Column(db.String(10), index=True, unique=True)
     homeworks = db.relationship("HomeWork", backref="author", lazy="dynamic")
     solutions = db.relationship("Solution", backref="author", lazy="dynamic")
+    messages_sent = db.relationship("Messages",
+                                            foreign_keys="Message.sender_id",
+                                            backref="author", lazy="dynamic")
+    messages_sent = db.relationship("Messages",
+                                            foreign_keys="Message.recipent_id",
+                                            backref="author", lazy="dynamic")
+    last_message_read_time = db.Column(db.DateTime)
 
 
     def __repr__(self):
@@ -28,7 +35,12 @@ class User(UserMixin, db.Model):
         return self.password == password
 
     def is_teacher(self):
-        return self.access_level == 1  
+        return self.access_level == 1
+
+    def new_messages(self):
+        last_read_time = self.last_message_read_time or datetime(1900, 1, 1)
+            return Message.query.filter_by(recipient=self).filter(
+                Message.timestamp > last_read_time).count()  
 
 
 class HomeWork(db.Model):
