@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
     <h1>User: {{ user.username }}</h1>
@@ -7,14 +8,40 @@
     <p>&emsp;Email: {{ user.email }}</p>
     <p>&emsp;Phone number: {{ user.phone_number }}</p>
     <hr>
-    {% if current_user.is_teacher() or user == current_user %}
     <div class="container">
-        <a href="{{ url_for('update', username=user.username) }}">
-            <button type="button" class="btn btn-primary btn-lg">
-                Edit
-            </button>
-        </a>
+        <div class="btn-group">
+            {% if current_user.is_teacher() or user == current_user %}
+                <a href="{{ url_for('update', username=user.username) }}">
+                    <button type="button" class="btn btn-primary btn-lg">
+                        Edit
+                    </button>
+                </a>
+            {% endif %}
+            {% if form%}
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="collapse" data-target="#send">
+                    Send message
+                </button>
+                <div id="send" class="collapse">
+                    <div class="row">
+                        <div class="col-md-4">
+                            {{ wtf.quick_form(form) }}
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="collapse" data-target="#view">
+                    Show messages
+                </button>
+                <div id="view" class="collapse">
+                    <style>
+                        #section1 {padding-top:50px;height:500px;}
+                    </style>
+                    <div data-spy="scroll" data-offset="50">
+                        <p></p>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
     </div>
-    {% endif %}
+    
     
 {% endblock %}
