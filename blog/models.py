@@ -22,7 +22,7 @@ class User(UserMixin, db.Model):
     messages_sent = db.relationship("Messages",
                                             foreign_keys="Message.sender_id",
                                             backref="author", lazy="dynamic")
-    messages_sent = db.relationship("Messages",
+    messages_received = db.relationship("Messages",
                                             foreign_keys="Message.recipent_id",
                                             backref="author", lazy="dynamic")
     last_message_read_time = db.Column(db.DateTime)

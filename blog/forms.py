@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm, Form
 from flask_wtf.file import FileField, FileRequired
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextField
+from wtforms import TextAreaField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
 from wtforms.validators import Optional, Length
 from blog.models import User
@@ -70,7 +71,7 @@ class UploadFile(Form):
 
 
 class Messages(FlaskForm):
-    message = TextAreaField(_l('Message'), validators=[
+    message = TextAreaField(('Message'), validators=[
         DataRequired(), Length(min=0, max=140)])
-    submit = SubmitField(_l('Submit'))
+    submit = SubmitField(('Submit'))
         
