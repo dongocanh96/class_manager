@@ -24,7 +24,7 @@ class User(UserMixin, db.Model):
                                             backref="author", lazy="dynamic")
     messages_received = db.relationship("Message",
                                             foreign_keys="Message.recipent_id",
-                                            backref="author", lazy="dynamic")
+                                            backref="recipient", lazy="dynamic")
     last_message_read_time = db.Column(db.DateTime)
 
 

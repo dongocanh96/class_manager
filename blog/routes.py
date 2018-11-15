@@ -2,7 +2,8 @@ from flask import render_template, flash, redirect, url_for, request, send_from_
 from werkzeug.urls import url_parse
 from werkzeug import secure_filename
 from blog import app, db
-from blog.forms import LoginForm, RegistrationForm, EditProfileForm, UploadFile, Messages
+from blog.forms import LoginForm, RegistrationForm, EditProfileForm, UploadFile
+from blog.forms import MessageForm
 from flask_login import current_user, login_user, logout_user
 from flask_login import login_required
 from blog.models import User, HomeWork, Solution, Message
@@ -72,22 +73,24 @@ def register():
     return render_template("register.html", title="Register", form=form)
 
 
-@app.route("/user/<username>")
+@app.route("/user/<username>", methods=["GET", "POST"])
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
-    if current_user is not user:
-        form = Message()
-        messages = current_user.query.messages_sent.\
+    if current_user == user:
+        return render_template("user.html", user=user)
+    else:       
+        form = MessageForm()
+        messages = current_user.messages_sent.\
             order_by(Message.timestamp.desc()).\
-            filter_by(recipent_id=user.id).first_or_404()
-        message = Message(sender_id=current_user.id, recipent_id=user.id,
-            body=form.message.data)
-        db.session.add(message)
-        db.session.commit()
+            filter_by(recipent_id=user.id)
+        if form.validate_on_submit():
+            message = Message(sender_id=current_user.id, recipent_id=user.id,
+                body=form.message.data)
+            db.session.add(message)
+            db.session.commit()
         return render_template("user.html", user=user,
-            form=form, messages=messages)          
-    return render_template("user.html", user=user)
+            form=form, messages=messages)
 
 
 @app.route("/all-users")
