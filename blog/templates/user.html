@@ -36,7 +36,10 @@
                         #section1 {padding-top:50px;height:500px;}
                     </style>
                     <div data-spy="scroll" data-offset="50">
-                        <p></p>
+                        <div style="height:240px;border:1px solid #ccc;overflow:auto">
+                            {% for message in messages %}
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
             {% endif %}
