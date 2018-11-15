@@ -38,6 +38,7 @@
                     <div data-spy="scroll" data-offset="50">
                         <div style="height:240px;border:1px solid #ccc;overflow:auto">
                             {% for message in messages %}
+                                {% include "_message.html" %}
                             {% endfor %}
                         </div>
                     </div>
