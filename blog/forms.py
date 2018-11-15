@@ -67,4 +67,10 @@ class EditProfileForm(FlaskForm):
 class UploadFile(Form):
     file = FileField(validators=[FileRequired()])
     submit = SubmitField("Submit")
+
+
+class Messages(FlaskForm):
+    message = TextAreaField(_l('Message'), validators=[
+        DataRequired(), Length(min=0, max=140)])
+    submit = SubmitField(_l('Submit'))
         
