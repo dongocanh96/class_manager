@@ -9,26 +9,25 @@
     <p>&emsp;Phone number: {{ user.phone_number }}</p>
     <hr>
     <div class="container">
-        <div class="btn-group">
             {% if current_user.is_teacher() or user == current_user %}
                 <a href="{{ url_for('update', username=user.username) }}">
-                    <button type="button" class="btn btn-primary btn-lg">
+                    <button type="button" class="btn btn-primary">
                         Edit
                     </button>
                 </a>
             {% endif %}
             {% if form%}
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="collapse" data-target="#send">
+                <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#send" aria-expanded="false">
                     Send message
                 </button>
                 <div id="send" class="collapse">
-                    <div class="row">
-                        <div class="col-md-4">
+                    <div data-spy="scroll" data-offset="50">
+                        <div style="height:240px;border:1px solid #ccc;overflow:auto">
                             {{ wtf.quick_form(form) }}
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="collapse" data-target="#view">
+                <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#view" aria-expanded="false">
                     Show messages
                 </button>
                 <div id="view" class="collapse">
@@ -41,7 +40,6 @@
                     </div>
                 </div>
             {% endif %}
-        </div>
     </div>
     
     
